@@ -5,14 +5,13 @@
 [![Cachix Cache](https://img.shields.io/badge/Cachix-icebluerabbit--openchamber--flake-blue.svg)](https://icebluerabbit-openchamber-flake.cachix.org)
 [![Nix Built](https://img.shields.io/badge/Nix-Flake-blue.svg?logo=nixos&logoColor=white)](https://nixos.org)
 
-This repository provides a Nix Flake for [**OpenChamber**](https://github.com/openchamber/openchamber) (the web UI and Electron desktop client for the OpenCode AI coding agent), containing the web daemon service, the Electron GUI desktop application package, and fully configurable NixOS and Home Manager service modules.
+This repository provides a Nix Flake for [**OpenChamber**](https://github.com/openchamber/openchamber) (the web UI and Electron desktop client for the OpenCode AI coding agent), containing the web daemon service, the Electron GUI desktop application package, and a fully configurable NixOS service module.
 
 ---
 
 ## 📚 Documentation
 
 *   [**NixOS Options (`docs/NIXOS_OPTIONS.md`)**](docs/NIXOS_OPTIONS.md): Configuration options for the NixOS system service module.
-*   [**Home Manager Options (`docs/HOME_MANAGER_OPTIONS.md`)**](docs/HOME_MANAGER_OPTIONS.md): Configuration options for the Home Manager user service module.
 
 ---
 
@@ -60,26 +59,6 @@ Activate the module and declare daemon settings system-wide:
       darkThemeId = "default";
       desktopLanAccessEnabled = false;
       showReasoningTraces = true;
-    };
-  };
-}
-```
-
-### Home Manager Module
-
-Declare settings on a per-user level using user systemd services:
-
-```nix
-{ inputs, ... }: {
-  imports = [ inputs.openchamber-flake.homeManagerModules.default ];
-
-  services.openchamber = {
-    enable = true;
-    port = 3001;
-    
-    settings = {
-      themeVariant = "dark";
-      mobileKeyboardMode = true;
     };
   };
 }

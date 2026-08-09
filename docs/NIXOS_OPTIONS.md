@@ -252,7 +252,7 @@ Port the OpenChamber server listens on.
 
 
 
-Declarative configuration options for OpenChamber’s \<filename>settings.json\</filename>.
+Declarative configuration options for OpenChamber’s ` settings.json `.
 
 
 
@@ -542,7 +542,7 @@ true
 
 Path to a file containing the UI password.
 The file must contain a line like:
-\<programlisting>OPENCHAMBER_UI_PASSWORD=your_password_here\</programlisting>
+` OPENCHAMBER_UI_PASSWORD=your_password_here `
 
 
 

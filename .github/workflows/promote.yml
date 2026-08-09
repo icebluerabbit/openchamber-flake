@@ -22,7 +22,7 @@ jobs:
 
       - name: Check differences and manage PR
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.AUTOMATION_TOKEN }}
         run: |
           # Fetch main to compare
           git fetch origin main

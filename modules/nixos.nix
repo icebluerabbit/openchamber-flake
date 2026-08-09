@@ -48,7 +48,7 @@ in
       description = ''
         Path to a file containing the UI password.
         The file must contain a line like:
-        <programlisting>OPENCHAMBER_UI_PASSWORD=your_password_here</programlisting>
+        `OPENCHAMBER_UI_PASSWORD=your_password_here`
       '';
     };
 
