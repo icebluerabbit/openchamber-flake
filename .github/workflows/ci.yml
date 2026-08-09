@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: Lint & Verify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v22
+
+      - name: Setup Cachix
+        uses: cachix/cachix-action@v17
+        with:
+          name: openchamber-flake
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+          skipPush: ${{ github.actor == 'dependabot[bot]' }}
+
+      - name: Check Nix Flake schema & outputs
+        run: nix flake check -L
+
+      - name: Verify Nix Formatting
+        run: |
+          nix fmt
+          git diff --exit-code
+
+      - name: Verify Options Documentation is Up to Date
+        run: |
+          nix run .#generate-docs
+          git diff --exit-code docs/
