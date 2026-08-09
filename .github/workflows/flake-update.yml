@@ -44,7 +44,7 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v8
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.AUTOMATION_TOKEN }}
           base: dev
           branch: automated/weekly-flake-update
           commit-message: "chore: weekly flake lock, package version & docs update"
