@@ -79,6 +79,6 @@ lib.mkOption {
   };
   default = { };
   description = ''
-    Declarative configuration options for OpenChamber's <filename>settings.json</filename>.
+    Declarative configuration options for OpenChamber's `settings.json`.
   '';
 }
