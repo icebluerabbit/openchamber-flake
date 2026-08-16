@@ -6,13 +6,13 @@
 
 let
   pname = "openchamber";
-  version = "1.18.1";
+  version = "1.18.4";
 
   src = fetchFromGitHub {
     owner = "openchamber";
     repo = "openchamber";
     rev = "v${version}";
-    hash = "sha256-5pVqhwVr44EepRDMIEZeyyvw/Yoi/tFOcPr9RSHus9I=";
+    hash = "sha256-K8boV2LuG5lauNtXeWHIjt+qYS8NzSTqAP7m2htVmdk=";
   };
 in
 buildNpmPackage {
@@ -34,7 +34,7 @@ buildNpmPackage {
   '';
 
   # We use a dummy hash first to force Nix to compute the real npmDepsHash for us
-  npmDepsHash = "sha256-ltuwX2+vab9OD8I/h34LbgVygsec9vw6FOJmmeOzNks=";
+  npmDepsHash = "sha256-ewhJVBHm9pd0ZfnUdRxbq25nQw2kzF5uMG5x1LMGZvc=";
 
   makeCacheWritable = true;
 
